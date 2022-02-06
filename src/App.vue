@@ -1,11 +1,9 @@
 <template>
   <div id="app">
-    Artist Form <br/>
-    <!-- <HelloWorld /> -->
-    <input type="text" v-model="id" />
-    <button v-on:click="showForm()">Add Artist</button>
-    <div v-if="formIndicator"><AddArtistForm /></div>
-    <!-- {{this.artistsList[0]}} -->
+    Artist Directory <br/>
+    <AddArtistForm />
+    {{nameFilter}}
+
     
   </div>
 </template>
@@ -17,13 +15,10 @@ import mymixin from "./components/mymixin";
 export default {
   name: "app",
   mixins: [mymixin],
-    //   data() {
-    //     return {
-    //         artName: null,
-    //         about: null,
-    //         url: null
-    //     }
-    // },
+      data() {
+        return {
+        }
+    },
   components: {
     HelloWorld,
     AddArtistForm,
