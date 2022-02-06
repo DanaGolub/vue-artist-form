@@ -1,20 +1,63 @@
 <template>
-  <form>
-    <!-- <label for="new-todo-input">
-      What needs to be done?
-    </label> -->
+  <form @submit.prevent>
     <br />
-    <input type="text" id="name" name="name" placeholder="Artist Name" autocomplete="off" />
+    <input type="text" name="artName" placeholder="Artist Name" autocomplete="off" v-model="artName" />
     <br />
-    <input type="text" id="about" name="about" placeholder="About Artist" autocomplete="off" />
+    <input type="text" name="about" placeholder="About Artist" autocomplete="off" v-model="about" />
     <br />
-    <input type="text" id="img-url" name="img-url" placeholder="Image URL" autocomplete="off" />
+    <input type="text"  name="url" placeholder="Image URL" autocomplete="off" v-model="url" />
     <br />
-    <button type="submit">Add</button>
+    <button v-on:click="addArtist(artName, about, url)" type="submit">Add</button>
+    <div v-for="artist in artistList" :key="artist.id" class="each-artists">
+        {{artist.artistName}}
+        {{artist.aboutArtist}}
+        {{artist.artistUrl}}
+        <br/>
+
+    </div>
   </form>
 </template>
 <script>
-export default {};
+import mymixin from "./mymixin";
+export default {
+    mixins: [mymixin],
+    data() {
+        return {
+            artName: null,
+            about: null,
+            url: null,
+            idForArtist: 3,
+            artistList: [
+                {
+                    'id': 1,
+                    'artistName': "bestArtist",
+                    'aboutArtist': "lalala",
+                    'artistUrl': "asddfgh"
+                },
+                {
+                    'id': 2,
+                    'artistName': "aaaaaa",
+                    'aboutArtist': "bbbbbb",
+                    'artistUrl': "cccccc"
+                }
+            ]
+        }
+    },
+    methods: {
+        addArtist() {
+            this.artistList.push({
+                id: this.idForArtist,
+                artistName: this.artName,
+                aboutArtist: this.about,
+                artistUrl: this.url
+            })
+            this.artName = '',
+            this.about = '',
+            this.url = '',
+            this.idForArtist++
+        }
+    }
+};
 </script>
 <style>
 

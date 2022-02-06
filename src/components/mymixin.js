@@ -2,52 +2,41 @@
 export default {
     // This is called once the object is built.
     created: function () {
-        // console.log("mymixin has been created.")
-        // this.showMixinAlert();
-        // this.addFullName();
         this.formIndicator = false
-        // console.log(this.formIndicator)
+        // console.log(this.artistsList)
     },
     // This is the method.
     methods: {
-        // showMixinAlert: function () {
-        //     alert("Hi this is from mymixin!");
-        // },
-        // addFullName: function () {
-        //     this.fullname = "Dana Golubiev"
-        // },
-        // getShoe(id) {
-        //     for(var i=0; i<this.footwear.length; i++) {
-        //         if(id==this.footwear[i].id) {
-        //                 this.footwearItem = this.footwear[i];
-        //                 alert(this.footwearItem.shoe);
-        //         }
-        //     }
-        // },
-        addArtist: function () {
+        showForm: function () {
             this.formIndicator = !this.formIndicator
-            console.log(this.formIndicator)
-        }
-        
+            // console.log(this.formIndicator)
+        },
+        // addArtist: function (artName, about, url) {
+        //     console.log()
+        //     this.artistName = artName
+        //     this.artAbout = about
+        //     this.artUrl = url;
+        //     // console.log(this.artistsList)
+        //     // return {artistObj: 
+        //     //     this.artistsList.push({
+        //     //     artist: this.artistName,
+        //     //     artAbout: this.artAbout,
+        //     //     artUrl: this.artUrl
+        //     // })}
+        //     (this.artistsList).push({a: artName, b: about, c: url})
+        //     console.log(this.artistsList)
+        // }
     },
     data () {
         return {
         mixinMsg:'Hello from mixin',
         formIndicator: Boolean,
-        // fullname:null,
-        // footwareitem: null,
-        // footwear: 
-        //   [{id:100,
-        //     shoe:'Analeigh Suede Peeptoe Shooties ',
-        //     brand:'Ann Taylor'},
-
-        //     {id:200,
-        //     shoe:'Karen Millen Mesh and Leather Pumps ',
-        //     brand:'Karen Millen'},
-
-        //     {id:300,
-        //     shoe:'Olivia Suede Boots',
-        //     brand:'Joie'}]
+        artistName: String,
+        artAbout: String,
+        artUrl: String,
+        artistObj: {},
+        artistsList: []
+      
         }
     }
 }
